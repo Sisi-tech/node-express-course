@@ -7,6 +7,15 @@
 // process    - info about env where the program is being executed
 
 console.log(__dirname)
-setInterval(() => {
-  console.log('hello world')
-}, 1000)
+// setInterval(() => {
+//   console.log('hello world')
+// }, 1000)
+
+console.log('__dirname:', __dirname);
+
+console.log('__filename: ', __filename);
+console.log('MY_VAR:', process.env.MY_VAR);
+
+console.log('process.env:', process.env);
+console.log('module:', module);
+
