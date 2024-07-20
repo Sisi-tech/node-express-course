@@ -1,22 +1,24 @@
 //npm install mongodb
 
 const mongoose = require('mongoose')
+require('dotenv').config();
 
-const connectionsString = 'mongodb+srv://Sisi:DatabaseUser2024@cluster0.zd4bpix.mongodb.net/Task-Manager?retryWrites=true&w=majority&appName=Cluster0';
 
 const connectDB = (url) => {
     return mongoose
-        .connect(connectionsString, {
+        .connect(url, {
             useNewUrlParser: true,
             useCreateIndex: true,
             useFindAndModify: false,
             useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 5000,
+            socketTimeoutMS: 45000,
         })
         .then(() => {
             console.log("Connected to the DB...");
         })
         .catch(err => {
-            console.error("Error: ", err);
+            console.error("Database connection Error: ", err);
         })
 }
 
